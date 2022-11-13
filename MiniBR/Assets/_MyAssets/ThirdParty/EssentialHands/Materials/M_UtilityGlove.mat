@@ -67,6 +67,8 @@ Material:
     - Vector1_4a27af087dad4784a685842ee9382044: 1
     - _Glossiness: 0.295
     - _Metallic: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - Color_ed805b10c8414e27b5867ea932f7bac7: {r: 0.9433962, g: 0.9433962, b: 0.9433962,
         a: 0}
