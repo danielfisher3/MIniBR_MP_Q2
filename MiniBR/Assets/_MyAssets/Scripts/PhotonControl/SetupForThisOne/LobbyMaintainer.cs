@@ -43,11 +43,7 @@ public class LobbyMaintainer : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 
     public void OnClickCreateRoom()
     {
@@ -59,6 +55,11 @@ public class LobbyMaintainer : MonoBehaviourPunCallbacks
         }
     }
 
+
+    public void OnClickStartGame()
+    {
+        PhotonNetwork.LoadLevel(1);
+    }
     public void OnClickLeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
@@ -88,6 +89,32 @@ public class LobbyMaintainer : MonoBehaviourPunCallbacks
         }
     }
 
+    void UpdatePlayerList()
+    {
+        //destroy old list
+        foreach (PlayerInformation item in playerItemsList)
+        {
+            Destroy(item.gameObject);
+        }
+        //clear old list
+        playerItemsList.Clear();
+
+        //check to make sure we are in a room witrh players
+        if (PhotonNetwork.CurrentRoom == null) return;
+
+        //repopulate list
+        foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
+        {
+            PlayerInformation newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
+            newPlayerItem.SetPlayerInfo(player.Value);
+            if (player.Value == PhotonNetwork.LocalPlayer)
+            {
+                newPlayerItem.ApplyLocalPlayerHighlight();
+            }
+            playerItemsList.Add(newPlayerItem);
+        }
+    }
+
 
     public override void OnConnectedToMaster()
     {
@@ -101,7 +128,7 @@ public class LobbyMaintainer : MonoBehaviourPunCallbacks
         //set the room name text
         roomName.text = PhotonNetwork.CurrentRoom.Name;
         //update players in room
-        //UpdatePlayerList();
+        UpdatePlayerList();
         //for debugging
         print("Joined room: " + PhotonNetwork.CurrentRoom.Name);
     }
@@ -113,6 +140,18 @@ public class LobbyMaintainer : MonoBehaviourPunCallbacks
             UpdateRoomList(roomList);
             nextUpdateTime = Time.time + timeBetweenUpdates;
         }
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        UpdatePlayerList();
+    }
+
+
+    
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        UpdatePlayerList();
     }
 
     public override void OnLeftRoom()
