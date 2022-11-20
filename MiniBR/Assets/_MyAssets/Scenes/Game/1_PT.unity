@@ -300,10 +300,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8664131894355128611, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8664131894355128611, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8664131894355128611, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3739111983287419694, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3515586440238927598, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3515586440238927598, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3515586440238927598, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 761d2e6707de0b543973ca96f2aff4d3,
         type: 3}
       propertyPath: m_Name
       value: MiniBRenviroSync
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531084230230199607, guid: 761d2e6707de0b543973ca96f2aff4d3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 761d2e6707de0b543973ca96f2aff4d3, type: 3}
