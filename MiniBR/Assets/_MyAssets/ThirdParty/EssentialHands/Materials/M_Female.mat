@@ -64,8 +64,11 @@ Material:
     m_Ints: []
     m_Floats:
     - Boolean_3b8d048c387e40c584937e34d00d0ed1: 0
+    - Vector1_4a27af087dad4784a685842ee9382044: 1
     - _Glossiness: 0.295
     - _Metallic: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - Color_ed805b10c8414e27b5867ea932f7bac7: {r: 1, g: 1, b: 1, a: 0}
     - Color_ed805b10c8414e27b5867ea932f7bac7_1: {r: 0.2035867, g: 0.51332957, b: 0.5754717,
