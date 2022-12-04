@@ -17,7 +17,7 @@ public class HandAnimationManager : MonoBehaviour
 
     string gripP = "Grip";
     string triggerP = "Trigger";
-
+    [SerializeField] bool isLeft;
     [SerializeField] bool hasGun = false;
     [SerializeField] GameObject handgun;
 
@@ -33,21 +33,24 @@ public class HandAnimationManager : MonoBehaviour
     {
         SetGrip(gripRef.action.ReadValue<float>());
         SetTrigger(triggerRef.action.ReadValue<float>());
-
-        if (!hasGun)
-        {
-            handgun.SetActive(false);
-        }
-        else if(hasGun && gripRef.action.ReadValue<float>() >= 0.25f)
-        {
-            handgun.SetActive(true);
-        }
-        else if(hasGun && gripRef.action.ReadValue<float>() < 0.25f)
-        {
-            handgun.SetActive(false);
-        }
+       
 
         AnimateHand();
+        if (!isLeft)
+        {
+            if (!hasGun)
+            {
+                handgun.SetActive(false);
+            }
+            else if (hasGun && gripRef.action.ReadValue<float>() >= 0.25f)
+            {
+                handgun.SetActive(true);
+            }
+            else if (hasGun && gripRef.action.ReadValue<float>() < 0.25f)
+            {
+                handgun.SetActive(false);
+            }
+        }
     }
 
     internal void SetTrigger(float v)
@@ -62,7 +65,10 @@ public class HandAnimationManager : MonoBehaviour
 
     void AnimateHand()
     {
-        hAnimator.SetBool("GunInHand", hasGun);
+        if (!isLeft)
+        {
+            hAnimator.SetBool("GunInHand", hasGun);
+        }
         if(gripCurrent != gripTarget)
         {
             gripCurrent = Mathf.MoveTowards(gripCurrent, gripTarget, Time.deltaTime * speed);
