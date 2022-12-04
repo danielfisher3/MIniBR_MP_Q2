@@ -18,8 +18,10 @@ public class HandAnimationManager : MonoBehaviour
     string gripP = "Grip";
     string triggerP = "Trigger";
     [SerializeField] bool isLeft;
-    [SerializeField] bool hasGun = false;
+    public bool canHoldGun;
+    bool holdingGun;
     [SerializeField] GameObject handgun;
+    
 
 
     // Start is called before the first frame update
@@ -38,18 +40,22 @@ public class HandAnimationManager : MonoBehaviour
         AnimateHand();
         if (!isLeft)
         {
-            if (!hasGun)
-            {
-                handgun.SetActive(false);
-            }
-            else if (hasGun && gripRef.action.ReadValue<float>() >= 0.25f)
+            
+            if(canHoldGun && gripRef.action.ReadValue<float>() > 0.1f)
             {
                 handgun.SetActive(true);
+                holdingGun = true;
             }
-            else if (hasGun && gripRef.action.ReadValue<float>() < 0.25f)
+           
+            if( holdingGun && gripRef.action.ReadValue<float>() < 0.1f)
             {
+                holdingGun = false;
                 handgun.SetActive(false);
             }
+
+
+           
+            
         }
     }
 
@@ -67,7 +73,7 @@ public class HandAnimationManager : MonoBehaviour
     {
         if (!isLeft)
         {
-            hAnimator.SetBool("GunInHand", hasGun);
+            hAnimator.SetBool("GunInHand", holdingGun);
         }
         if(gripCurrent != gripTarget)
         {
