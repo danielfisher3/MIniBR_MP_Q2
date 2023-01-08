@@ -56,24 +56,40 @@ public class HandAnimations : MonoBehaviour
     {
         
             hand.hasPistol = !hand.hasPistol;
+        if (hand.hasPistol)
+        {
+            hand.hasMG = false;
+        }
         
     }
     void ChanegMGVar(InputAction.CallbackContext context)
     {
         
             hand.hasMG = !hand.hasMG;
+        if (hand.hasMG)
+        {
+            hand.hasPistol = false;
+        }
         
     }
     void ChanegKnifeVar(InputAction.CallbackContext context)
     {
        
             hand.hasKnife = !hand.hasKnife;
+        if (hand.hasKnife)
+        {
+            hand.hasHandheld = false;
+        }
         
     }
     void ChanegHHVar(InputAction.CallbackContext context)
     {
        
             hand.hasHandheld = !hand.hasHandheld;
+        if (hand.hasHandheld)
+        {
+            hand.hasKnife = false;
+        }
         
     }
 }
