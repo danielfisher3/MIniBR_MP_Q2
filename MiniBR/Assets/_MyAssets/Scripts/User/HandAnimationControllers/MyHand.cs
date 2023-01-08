@@ -14,13 +14,18 @@ public class MyHand : MonoBehaviour
     [SerializeField]float speed;
     string animatorGripParam = "Grip";
     string animatorTriggerParam = "Trigger";
-    string gunParam = "GunInHand";
+    string gunHoldParam = "HasGun";
+    string kParam = "HasKnife";
+    string hhParam = "HasHH";
     public bool hasPistol;
     public bool hasMG;
     public bool hasKnife;
     public bool hasHandheld;
+    public bool isLeft = false;
+    bool hasGun;
     [SerializeField] GameObject pistol;
-   
+    [SerializeField] GameObject mg;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +38,34 @@ public class MyHand : MonoBehaviour
     {
         
         AnimateHand();
+        if (hasPistol)
+        {
+            pistol.SetActive(true);
+            mg.SetActive(false);
+        }
+        else
+        {
+            pistol.SetActive(false);
+        }
+
+        if (hasMG)
+        {
+            mg.SetActive(true);
+            pistol.SetActive(false);
+        }
+        else
+        {
+            mg.SetActive(false);
+        }
         
-        
+        if(hasMG || hasPistol)
+        {
+            hasGun = true;
+        }
+        else if(!hasMG || !hasPistol)
+        {
+            hasGun = false;
+        }
     }
 
     internal void SetGrip(float v)
@@ -51,20 +82,47 @@ public class MyHand : MonoBehaviour
     
     void AnimateHand()
     {
+        handAnim.SetBool(gunHoldParam, hasGun);
         
-            
-            
-            if (currentGripValue != griptarget)
-            {
-                currentGripValue = Mathf.MoveTowards(currentGripValue, griptarget, Time.deltaTime * speed);
-                handAnim.SetFloat(animatorGripParam, currentGripValue);
-            }
+        handAnim.SetBool(kParam, hasKnife);
+        handAnim.SetBool(hhParam, hasHandheld);
 
-            if (currentTriggerValue != triggerTarget)
+        if (!isLeft)
+        {
+            if (!hasMG && !hasPistol)
             {
-                currentTriggerValue = Mathf.MoveTowards(currentTriggerValue, triggerTarget, Time.deltaTime * speed);
-                handAnim.SetFloat(animatorTriggerParam, currentTriggerValue);
+
+                if (currentGripValue != griptarget)
+                {
+                    currentGripValue = Mathf.MoveTowards(currentGripValue, griptarget, Time.deltaTime * speed);
+                    handAnim.SetFloat(animatorGripParam, currentGripValue);
+                }
+
+                if (currentTriggerValue != triggerTarget)
+                {
+                    currentTriggerValue = Mathf.MoveTowards(currentTriggerValue, triggerTarget, Time.deltaTime * speed);
+                    handAnim.SetFloat(animatorTriggerParam, currentTriggerValue);
+                }
             }
+        }
+        else
+        {
+            if (!hasKnife && !hasHandheld)
+            {
+
+                if (currentGripValue != griptarget)
+                {
+                    currentGripValue = Mathf.MoveTowards(currentGripValue, griptarget, Time.deltaTime * speed);
+                    handAnim.SetFloat(animatorGripParam, currentGripValue);
+                }
+
+                if (currentTriggerValue != triggerTarget)
+                {
+                    currentTriggerValue = Mathf.MoveTowards(currentTriggerValue, triggerTarget, Time.deltaTime * speed);
+                    handAnim.SetFloat(animatorTriggerParam, currentTriggerValue);
+                }
+            }
+        }
         
        
     }
