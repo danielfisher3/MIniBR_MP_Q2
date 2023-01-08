@@ -16,34 +16,23 @@ public class MyHand : MonoBehaviour
     string animatorTriggerParam = "Trigger";
     string gunParam = "GunInHand";
     public bool hasPistol;
+    public bool hasMG;
+    public bool hasKnife;
+    public bool hasHandheld;
     [SerializeField] GameObject pistol;
+   
     // Start is called before the first frame update
     void Start()
     {
         handAnim = GetComponent<Animator>();
-        hasPistol = false;
-        if (pistol != null)
-        {
-            pistol.SetActive(false);
-        }
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        handAnim.SetBool(gunParam, hasPistol);
-        if (!hasPistol)
-        {
-            AnimateHand();
-            if(pistol != null)
-            {
-                pistol.SetActive(false);
-            }
-        }
-        else
-        {
-            pistol.SetActive(true);
-        }
+        AnimateHand();
+        
         
     }
 
@@ -57,6 +46,7 @@ public class MyHand : MonoBehaviour
         triggerTarget = v;
     }
 
+    
     
     void AnimateHand()
     {

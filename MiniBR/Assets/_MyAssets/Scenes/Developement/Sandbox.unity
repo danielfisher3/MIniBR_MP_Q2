@@ -716,6 +716,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pistolDraw: {fileID: 2450831191534196051, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  mgDraw: {fileID: 4021747254332637022, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  knifeDraw: {fileID: -4538815037792532677, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  hhDraw: {fileID: -4581981829891068500, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   hand: {fileID: 1661365245}
 --- !u!1 &317116870 stripped
 GameObject:
@@ -2418,6 +2422,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   hasPistol: 0
+  hasMG: 0
+  hasKnife: 0
+  hasHandheld: 0
   pistol: {fileID: 317116870}
 --- !u!95 &1202651615
 Animator:
@@ -3033,6 +3040,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pistolDraw: {fileID: 2450831191534196051, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  mgDraw: {fileID: 4021747254332637022, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  knifeDraw: {fileID: -4538815037792532677, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  hhDraw: {fileID: -4581981829891068500, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   hand: {fileID: 1202651614}
 --- !u!4 &1661365244 stripped
 Transform:
@@ -3054,7 +3065,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   hasPistol: 0
-  pistol: {fileID: 0}
+  hasMG: 0
+  hasKnife: 0
+  hasHandheld: 0
+  pistol: {fileID: 317116870}
 --- !u!95 &1661365246
 Animator:
   serializedVersion: 4

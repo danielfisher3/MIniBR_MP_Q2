@@ -278,6 +278,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "KnfeDraw",
+                    "type": "Button",
+                    "id": "25906e88-28c0-4d17-853f-93abc484bc34",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HHDraw",
+                    "type": "Button",
+                    "id": "174871b1-bbd8-4385-9265-aee4da143641",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -366,6 +384,28 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "Generic XR Controller",
                     "action": "Translate Anchor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2514f35-ce5a-43bd-b913-634b7f80dde2",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KnfeDraw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fb28b4d-ed81-4bbe-b680-397caaaa22d1",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HHDraw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -775,7 +815,16 @@
                     "id": "1b2ce058-a4ae-49df-b1d6-f6da00271d0c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MGDraw",
+                    "type": "Button",
+                    "id": "cbbad258-511a-46eb-8f58-35608acdb8d7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -876,6 +925,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PistolDraw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0f8f3b8d-ba68-46db-b0ce-1b4886eaf9c5",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MGDraw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

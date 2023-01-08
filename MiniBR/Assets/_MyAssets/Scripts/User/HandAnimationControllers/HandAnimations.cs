@@ -8,9 +8,35 @@ using UnityEngine.InputSystem;
 public class HandAnimations : MonoBehaviour
 {
     ActionBasedController controller;
-    [SerializeField] InputActionReference pistolDraw;
+    public InputActionReference pistolDraw;
+    public InputActionReference mgDraw;
+    public InputActionReference knifeDraw;
+    public InputActionReference hhDraw;
     public MyHand hand;
 
+    private void OnEnable()
+    {
+       
+            pistolDraw.action.performed += ChanegPistolVar;
+            mgDraw.action.performed += ChanegMGVar;
+       
+            knifeDraw.action.performed += ChanegKnifeVar;
+            hhDraw.action.performed += ChanegHHVar;
+
+        
+    }
+    private void OnDisable()
+    {
+       
+            pistolDraw.action.canceled += ChanegPistolVar;
+            mgDraw.action.canceled += ChanegMGVar;
+       
+        
+       
+            knifeDraw.action.canceled += ChanegKnifeVar;
+            hhDraw.action.canceled += ChanegHHVar;
+     
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +49,31 @@ public class HandAnimations : MonoBehaviour
         hand.SetGrip(controller.selectAction.action.ReadValue<float>());
         hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
 
-        if(pistolDraw.action.ReadValue<float>() > 0.01f && hand.hasPistol == false)
-        {
-            hand.hasPistol = true;
-        }
+       
+    }
 
-        if(pistolDraw.action.ReadValue<float>() > 0.01f && hand.hasPistol == true)
-        {
-            hand.hasPistol = false;
-        }
+    void ChanegPistolVar(InputAction.CallbackContext context)
+    {
+        
+            hand.hasPistol = !hand.hasPistol;
+        
+    }
+    void ChanegMGVar(InputAction.CallbackContext context)
+    {
+        
+            hand.hasMG = !hand.hasMG;
+        
+    }
+    void ChanegKnifeVar(InputAction.CallbackContext context)
+    {
+       
+            hand.hasKnife = !hand.hasKnife;
+        
+    }
+    void ChanegHHVar(InputAction.CallbackContext context)
+    {
+       
+            hand.hasHandheld = !hand.hasHandheld;
+        
     }
 }
