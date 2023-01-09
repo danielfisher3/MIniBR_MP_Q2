@@ -25,6 +25,8 @@ public class MyHand : MonoBehaviour
     bool hasGun;
     [SerializeField] GameObject pistol;
     [SerializeField] GameObject mg;
+    [SerializeField] GameObject knife;
+    [SerializeField] GameObject fGrenade;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +60,7 @@ public class MyHand : MonoBehaviour
             mg.SetActive(false);
         }
         
+
         if(hasMG || hasPistol)
         {
             hasGun = true;
@@ -65,6 +68,28 @@ public class MyHand : MonoBehaviour
         else if(!hasMG || !hasPistol)
         {
             hasGun = false;
+        }
+
+
+
+        if (hasKnife)
+        {
+            knife.SetActive(true);
+            fGrenade.SetActive(false);
+        }
+        else
+        {
+            knife.SetActive(false);
+        }
+
+        if (hasHandheld)
+        {
+            fGrenade.SetActive(true);
+            knife.SetActive(false);
+        }
+        else
+        {
+            fGrenade.SetActive(false);
         }
     }
 
